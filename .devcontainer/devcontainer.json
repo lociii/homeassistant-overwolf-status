@@ -1,0 +1,46 @@
+{
+	"image": "ghcr.io/ludeeus/devcontainer/integration:stable",
+	"name": "Overwolf Webhook development",
+	"context": "..",
+	"appPort": [
+		"9123:8123"
+	],
+	"postCreateCommand": "container install",
+	"extensions": [
+		"ms-python.python",
+		"github.vscode-pull-request-github",
+		"ryanluker.vscode-coverage-gutters",
+		"ms-python.vscode-pylance",
+		"redhat.vscode-yaml",
+		"bungcip.better-toml",
+		"oderwat.indent-rainbow"
+	],
+	"settings": {
+		"files.eol": "\n",
+		"editor.tabSize": 4,
+		"terminal.integrated.profiles.linux": {
+			"bash": {
+				"path": "/bin/bash"
+			}
+		},
+		"python.defaultInterpreterPath": "/usr/bin/python3",
+		"python.analysis.autoSearchPaths": false,
+		"python.linting.pylintEnabled": true,
+		"python.linting.enabled": true,
+		"python.formatting.provider": "black",
+		"python.formatting.blackArgs": [
+			"--line-length",
+			"88"
+		],
+		"[python]": {
+			"editor.rulers": [
+				88
+			]
+		},
+		"editor.formatOnPaste": false,
+		"editor.formatOnSave": true,
+		"files.trimTrailingWhitespace": true,
+		"files.insertFinalNewline": true,
+		"yaml.format.enable": true
+	}
+}

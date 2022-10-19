@@ -1,0 +1,18 @@
+{
+    "config": {
+        "title": "Overwolf Webhook",
+        "step": {
+            "user": {
+                "title": "Set up the Overwolf Webhook",
+                "description": "Do you want to start setting up the Overwolf Webhook?"
+            }
+        },
+        "abort": {
+            "single_instance_allowed": "Already configured. Only a single configuration possible.",
+            "webhook_not_internet_accessible": "Your Home Assistant instance needs to be accessible from the internet to receive webhook messages."
+        },
+        "create_entry": {
+            "default": "To send events to Home Assistant, you will need to setup the [Home Assistant game event]({overwolf_url}) app in Overwolf. \n\n Fill in the following info when asked for the target URL: \n\n - `{webhook_url}` \n\n See [the documentation]({docs_url}) on how to configure automations to handle incoming data."
+        }
+    }
+}

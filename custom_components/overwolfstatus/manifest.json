@@ -1,0 +1,16 @@
+{
+    "domain": "overwolfstatus",
+    "name": "Overwolf Webhook",
+    "documentation": "https://github.com/lociii/homeassistant-overwolf-status/",
+    "issue_tracker": "https://github.com/lociii/homeassistant-overwolf-status/issues",
+    "version": "1.0.0",
+    "dependencies": [
+        "webhook"
+    ],
+    "codeowners": [
+        "@lociii"
+    ],
+    "requirements": [],
+    "config_flow": true,
+    "iot_class": "cloud_push"
+}
