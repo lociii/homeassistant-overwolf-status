@@ -1,6 +1,5 @@
 {
     "config": {
-        "title": "Overwolf Webhook",
         "step": {
             "user": {
                 "title": "Einrichten des Overwolf Webhook",
