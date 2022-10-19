@@ -1,8 +1,14 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
 
+### Disclaimer
+
+This project is not endorsed by or affiliated with Overwolf or Home Assistant.
+
 > *CURRENT STATUS*: Waiting for release of the Overwolf companion app
 
 ---
+
+# About
 
 Home Assistant custom integration that handles game events from Overwolf and broadcasts them as events in Home Assistant
 

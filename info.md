@@ -1,3 +1,7 @@
+### Disclaimer
+
+This project is not endorsed by or affiliated with Overwolf or Home Assistant.
+
 # Overwolf Webhook
 
 This custom integration is part of a two-piece system to bridge game events from Overwolf into Home Assistant so that your smart home can react on them.
