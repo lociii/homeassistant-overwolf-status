@@ -11,13 +11,14 @@ from .const import DOMAIN, EVENT_NAME, TITLE
 async def handle_webhook(
     hass: HomeAssistant, webhook_id: str, request: web.Request
 ) -> web.Response:
-    """Fire Overwolf data 1:1 as a Home Assistant event."""
+    """Fire Overwolf data 1:1 as a Home Assistant events."""
     try:
         data = await request.json()
     except Exception:
         return web.Response(text="Failed to parse payload", status=400)
 
-    hass.bus.async_fire(EVENT_NAME, data)
+    for event in data:
+        hass.bus.async_fire(EVENT_NAME, event)
     return web.Response(text="OK")
 
 
