@@ -21,11 +21,25 @@ A list of all possible game events can be found in the [Overwolf documentation](
 
 1. Install the custom integration `Overwolf Webhook` using the [Home Assistant Community Store](https://hacs.xyz/) ([2022 setup guide](https://www.youtube.com/watch?v=zlaJrepZl2E))
 2. Set up the integration `Overwolf Webhook` ([2022 guide on how to install integrations](https://www.youtube.com/watch?v=zKND54iAZ1A&t=940s))
-3. Copy the Webhook URL that will be shown during the setup process (based on restrictions on target URLs in the Overwolf app, you can only use hooks.nabu.casa or homeassistant.local URLs)
+3. Copy the Webhook URL that will be shown during the setup process (based on restrictions on target URLs in the Overwolf app, you can only use hooks.nabu.casa or homeassistant.local URLs), see section webhook URL below.
 4. Install the Overwolf app `Home Assistant Game Events` from the [Overwolf store](https://TBD)
 5. Enter the URL copied in step 3 when asked for it by the Overwolf app
 
 Once setup is completed, game events will be sent from Overwolf to your Home Assistant installation. They will there be emitted 1:1 as the custom `overwolf_game_event` [event](https://www.home-assistant.io/docs/configuration/events/) to be processed by your own [automations reacting on them](https://www.home-assistant.io/docs/automation/trigger/#event-trigger).
+
+## Webhook URL
+
+As overwolf limits which external URLs an app can connect to, we're limited to Home Assistant cloud based webhook URLs starting with https://hooks.nabu.casa or local URLs using the default instance name homeassistant.local.
+
+### Local webhook URLs
+
+Home Assistant is not showing the local webhook URL anywhere as soon as you have an active cloud subscription. However, you can combine it yourself:  
+http://homeassistant.local:8123/api/webhook/<hook_id>
+
+The hook ID can be found in the cloud settings under the name of the webhook.  
+[![Open your Home Assistant instance and show your Home Assistant Cloud configuration.](https://my.home-assistant.io/badges/cloud.svg)](https://my.home-assistant.io/redirect/cloud/)
+
+![image](https://user-images.githubusercontent.com/366967/210141335-7a93ff83-1015-46e0-af65-31966d85bf88.png)
 
 ## Event format
 
