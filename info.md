@@ -1,7 +1,3 @@
-### Status
-
-Waiting for the Overwolf companion app to be approved and available in the Overwolf store.
-
 ### Disclaimer
 
 This project is not endorsed by or affiliated with Overwolf or Home Assistant.
@@ -14,7 +10,7 @@ This custom integration is part of a two-piece system to forward game events fro
 - Want your lights to flash red when the bomb is planted in CS:GO?
 - Want Alexa to cheer you when you make a kill in Dota 2 or LoL?
 
-This can all be achieved by this integration and the [Overwolf app counterpart](https://TBD).
+This can all be achieved by this integration and the [Overwolf app counterpart](https://www.overwolf.com/app/BinaryBurger-HomeAssistant_Game_Events).
 A list of all possible game events can be found in the [Overwolf documentation](https://overwolf.github.io/api/games/events).
 
 ## Setup
@@ -22,7 +18,7 @@ A list of all possible game events can be found in the [Overwolf documentation](
 1. Install the custom integration `Overwolf Webhook` using the [Home Assistant Community Store](https://hacs.xyz/) ([2022 setup guide](https://www.youtube.com/watch?v=zlaJrepZl2E))
 2. Set up the integration `Overwolf Webhook` ([2022 guide on how to install integrations](https://www.youtube.com/watch?v=zKND54iAZ1A&t=940s))
 3. Copy the Webhook URL that will be shown during the setup process (based on restrictions on target URLs in the Overwolf app, you can only use hooks.nabu.casa or homeassistant.local URLs), see section webhook URL below.
-4. Install the Overwolf app `Home Assistant Game Events` from the [Overwolf store](https://TBD)
+4. Install the Overwolf app `Home Assistant Game Events` from the [Overwolf store]([https://TBD](https://www.overwolf.com/app/BinaryBurger-HomeAssistant_Game_Events))
 5. Enter the URL copied in step 3 when asked for it by the Overwolf app
 
 Once setup is completed, game events will be sent from Overwolf to your Home Assistant installation. They will there be emitted 1:1 as the custom `overwolf_game_event` [event](https://www.home-assistant.io/docs/configuration/events/) to be processed by your own [automations reacting on them](https://www.home-assistant.io/docs/automation/trigger/#event-trigger).
