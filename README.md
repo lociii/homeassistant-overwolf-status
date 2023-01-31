@@ -4,8 +4,6 @@
 
 This project is not endorsed by or affiliated with Overwolf or Home Assistant.
 
-> *CURRENT STATUS*: Waiting for release of the Overwolf companion app
-
 ---
 
 # About
