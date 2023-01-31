@@ -3,7 +3,7 @@
     "name": "Overwolf Webhook",
     "documentation": "https://github.com/lociii/homeassistant-overwolf-status/",
     "issue_tracker": "https://github.com/lociii/homeassistant-overwolf-status/issues",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "dependencies": [
         "webhook"
     ],
