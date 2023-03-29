@@ -95,7 +95,7 @@ trigger:
     alias: Received an Overwolf CS:GO event
 condition:
   - condition: template
-    value_template: "{{ trigger.event.data.data.events.0.name == \"kill\" }}"
+    value_template: "{{ trigger.event.data.data.events.0.name == \"kill_feed\" }}"
     alias: Kill event
 action:
   - service: light.turn_on
