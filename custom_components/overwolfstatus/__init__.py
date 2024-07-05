@@ -1,5 +1,6 @@
 from aiohttp import web
 
+from homeassistant.components.webhook import async_register, async_unregister
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_WEBHOOK_ID
 from homeassistant.core import HomeAssistant
@@ -24,15 +25,22 @@ async def handle_webhook(
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Configure based on config entry."""
-    hass.components.webhook.async_register(
-        DOMAIN, TITLE, entry.data[CONF_WEBHOOK_ID], handle_webhook
+    async_register(
+        hass,
+        DOMAIN,
+        TITLE,
+        entry.data[CONF_WEBHOOK_ID],
+        handle_webhook,
     )
     return True
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
-    hass.components.webhook.async_unregister(entry.data[CONF_WEBHOOK_ID])
+    async_unregister(
+        hass,
+        entry.data[CONF_WEBHOOK_ID],
+    )
     return True
 
 
