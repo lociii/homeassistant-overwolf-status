@@ -10,7 +10,7 @@ This project is not endorsed by or affiliated with Overwolf or Home Assistant.
 
 Home Assistant custom integration that handles game events from Overwolf and broadcasts them as events in Home Assistant
 
-For details on setup and usage, see [info.md](https://github.com/lociii/homeassistant-overwolf-status/blob/master/info.md)
+For details on setup and usage, see [info.md](https://github.com/lociii/homeassistant-overwolf-status/blob/main/info.md)
 
 # Glossary
 
