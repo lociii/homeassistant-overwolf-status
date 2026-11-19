@@ -17,7 +17,7 @@ async def handle_webhook(
     """Forward a validated batch as individual Home Assistant events."""
     try:
         data = await request.json()
-    except (JSONDecodeError, UnicodeDecodeError):
+    except JSONDecodeError, UnicodeDecodeError:
         return web.Response(text="Failed to parse payload", status=400)
     except web.HTTPException as error:
         # Home Assistant's webhook dispatcher turns raised exceptions into HTTP 200.
