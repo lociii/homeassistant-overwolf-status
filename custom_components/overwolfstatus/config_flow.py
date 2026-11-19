@@ -9,7 +9,7 @@ config_entry_flow.register_webhook_flow(
     TITLE,
     {
         "docs_url": "https://github.com/lociii/homeassistant-overwolf-status/blob/master/info.md",
-        "overwolf_url": "https://TBD",
+        "overwolf_url": "https://www.overwolf.com/app/binaryburger-homeassistant_game_events",
     },
     False,
 )
