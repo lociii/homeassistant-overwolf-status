@@ -11,24 +11,25 @@ jobs:
     runs-on: "ubuntu-latest"
     name: Validate
     steps:
-        - uses: "actions/checkout@v7"
+      - uses: "actions/checkout@v7"
 
-        - name: HACS validation
-          uses: "hacs/action@main"
-          with:
-            category: "integration"
-            ignore: brands
+      - name: HACS validation
+        uses: "hacs/action@main"
+        with:
+          category: "integration"
+          ignore: brands
 
-        - name: Hassfest validation
-          uses: "home-assistant/actions/hassfest@master"
+      - name: Hassfest validation
+        uses: "home-assistant/actions/hassfest@master"
 
   style:
     runs-on: "ubuntu-latest"
     name: Check style formatting
     steps:
-        - uses: "actions/checkout@v7"
-        - uses: "actions/setup-python@v7"
-          with:
-            python-version-file: pyproject.toml
-        - run: python3 -m pip install ruff
-        - run: ruff check .
+      - uses: "actions/checkout@v7"
+      - uses: "actions/setup-python@v7"
+        with:
+          python-version-file: pyproject.toml
+      - run: python3 -m pip install ruff
+      - run: ruff --version
+      - run: ruff check .

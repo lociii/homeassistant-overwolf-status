@@ -1,7 +1,6 @@
 from json import JSONDecodeError
 
 from aiohttp import web
-
 from homeassistant.components.webhook import async_register, async_unregister
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_WEBHOOK_ID
