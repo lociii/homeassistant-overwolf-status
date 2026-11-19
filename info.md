@@ -25,14 +25,24 @@ Once setup is completed, game events will be sent from Overwolf to your Home Ass
 
 ## Webhook URL
 
-As overwolf limits which external URLs an app can connect to, we're limited to Home Assistant cloud based webhook URLs starting with https://hooks.nabu.casa or local URLs using the default instance name homeassistant.local.
+### Security
+
+The integration only accepts POST requests, matching the companion app. Remote access to the webhook is enabled so Nabu Casa cloudhooks and
+existing externally reachable installations will work.
+
+The webhook URL is a secret: anyone with it can send events that trigger your automations, without a Home Assistant login. Do not publish it in screenshots, logs, or issue reports.  
+Use HTTPS for external access; a local URL does not require opening a port on your router. Avoid using game events for security-sensitive actions such as unlocking doors.
+
+If the URL is exposed, remove and re-add the integration to generate a new webhook, then update the URL in the companion app.
+
+As overwolf limits which external URLs an app can connect to, we're limited to [Home Assistant Link](https://www.nabucasa.com/link/) based webhook URLs starting with https://hooks.nabu.casa or local URLs using the default instance name homeassistant.local.
 
 ### Local webhook URLs
 
-Home Assistant is not showing the local webhook URL anywhere as soon as you have an active cloud subscription. However, you can combine it yourself:  
+Home Assistant is not showing the local webhook URL anywhere as soon as you have an active `Link` subscription. However, you can combine it yourself:  
 http://homeassistant.local:8123/api/webhook/<hook_id>
 
-The hook ID can be found in the cloud settings under the name of the webhook.  
+The hook ID can be found in the webhooks section of your cloud settings under the name of the webhook.  
 [![Open your Home Assistant instance and show your Home Assistant Cloud configuration.](https://my.home-assistant.io/badges/cloud.svg)](https://my.home-assistant.io/redirect/cloud/)
 
 ![image](https://user-images.githubusercontent.com/366967/210141335-7a93ff83-1015-46e0-af65-31966d85bf88.png)

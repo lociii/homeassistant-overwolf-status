@@ -39,6 +39,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         TITLE,
         entry.data[CONF_WEBHOOK_ID],
         handle_webhook,
+        # Nabu Casa cloudhooks must be able to reach this endpoint.
+        local_only=False,
+        allowed_methods=("POST",),
     )
     return True
 
