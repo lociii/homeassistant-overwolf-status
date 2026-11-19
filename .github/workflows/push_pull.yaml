@@ -31,4 +31,4 @@ jobs:
           with:
             python-version-file: pyproject.toml
         - run: python3 -m pip install ruff
-        - run: ruff --check .
+        - run: ruff check .
