@@ -39,7 +39,15 @@ The hook ID can be found in the cloud settings under the name of the webhook.
 
 ## Event format
 
-Events / info updates will always be sent in the following format
+The webhook accepts a JSON array of event objects, even when sending only one event.
+The entire batch is checked before any events are emitted. Invalid JSON, a non-array
+payload, or an array containing non-object values receives HTTP 400 without emitting
+any events. An empty array is accepted and emits nothing.
+
+Each object is forwarded unchanged as one `overwolf_game_event`, in array order.
+Game-specific fields inside `data` are not validated or transformed.
+
+Events / info updates use the following format:
 
 ```yaml
 event: <string: "event" or "info">,
@@ -79,20 +87,21 @@ Whereever Overwolf provided stringified JSON as payload, we will decode it and s
 
 Automations must be based on the [event trigger](https://www.home-assistant.io/docs/automation/trigger/#event-trigger) listening for `overwolf_game_event` to be received.
 
-Here's an example that will listen to the above mentioned CS:GO kill event and turn a lamp red for one seconds before fading it out again.  
-Be aware that the above mentioned data structure is available in a template under the `trigger.event` variable.  
+Here's an example that will listen to the above mentioned CS:GO kill event and turn a lamp red for one second before fading it out again.  
+The above data structure is available in the trigger as `event_data` and in a template automation/condition under `trigger.event.data`.  
+Pay attention that the `data` section of the above event will then be available as `trigger.event.data.data`. List entries can be accessed with their index, e.g. `trigger.event.data.data.events.0.name` from the first payload example.  
 The extension will always send one game event / info update per Home Assistant event.
 
 ```yaml
 alias: CSGO - Kill
 description: ""
 trigger:
-  - platform: event
+  - alias: Received an Overwolf CS:GO event
+    trigger: event
     event_type: overwolf_game_event
     event_data:
-      data:
-        gameId: 7764
-    alias: Received an Overwolf CS:GO event
+      event: event
+      gameId: 7764
 condition:
   - condition: template
     value_template: "{{ trigger.event.data.data.events.0.name == \"kill\" }}"

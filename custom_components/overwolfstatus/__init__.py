@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 from aiohttp import web
 
 from homeassistant.components.webhook import async_register, async_unregister
@@ -12,11 +14,17 @@ from .const import DOMAIN, EVENT_NAME, TITLE
 async def handle_webhook(
     hass: HomeAssistant, webhook_id: str, request: web.Request
 ) -> web.Response:
-    """Fire Overwolf data 1:1 as a Home Assistant events."""
+    """Forward a validated batch as individual Home Assistant events."""
     try:
         data = await request.json()
-    except Exception:
+    except (JSONDecodeError, UnicodeDecodeError):
         return web.Response(text="Failed to parse payload", status=400)
+    except web.HTTPException as error:
+        # Home Assistant's webhook dispatcher turns raised exceptions into HTTP 200.
+        return web.Response(text=error.reason, status=error.status)
+
+    if not isinstance(data, list) or not all(isinstance(event, dict) for event in data):
+        return web.Response(text="Payload must be a JSON array of objects", status=400)
 
     for event in data:
         hass.bus.async_fire(EVENT_NAME, event)
