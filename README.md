@@ -1,4 +1,4 @@
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)](https://github.com/hacs/integration)
+[![custom_component_badge](https://img.shields.io/badge/Home%20Assistant-Custom%20integration-41BDF5.svg?style=for-the-badge)](https://contributors.home-assistant.io/core/integrations/create/)
 
 ### Disclaimer
 
